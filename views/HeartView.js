@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import Heart from '../../components/Heart';
-import {primaryColor} from '../../consts';
-import routes from '../../routes';
+import Heart from '../components/Heart';
+import {primaryColor} from '../consts';
+import routes from '../routes';
 
 class HeartView extends React.Component {
   constructor(props) {

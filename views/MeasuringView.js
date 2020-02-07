@@ -1,6 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 import Heart from '../components/Heart';
+import routes from '../routes';
 
 class MeasuringView extends React.Component {
   constructor(props) {
@@ -32,12 +34,15 @@ class MeasuringView extends React.Component {
       this.setState({...this.state, timeLeft: this.state.timeLeft - 1});
       if (this.state.timeLeft === 0) {
         clearInterval(interval);
-        alert(this.state.beats);
+        Actions.replace(routes.Results, {beats: this.state.beats});
       }
     }, 1000);
   }
 
   handleOnHeartPress() {
+    if (this.state.countdown > 0) {
+      return;
+    }
     this.setState({...this.state, beats: this.state.beats + 1});
   }
 
